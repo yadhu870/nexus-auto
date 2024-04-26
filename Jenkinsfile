@@ -76,5 +76,13 @@ pipeline {
                 }
             }
         }
-    }
-}
+        stage("deploy to tomcat"){
+                     steps{
+                          sshagent(['a4a074d6-0481-4476-a01a-1b36f1829f1e'])
+                          {
+               sh 'scp -o StrictHostKeyChecking=no target/webapp.war root@35.164.91.60:/opt/tomcat/webapps/'
+                           }
+                          }
+                     }
+              }
+        }
