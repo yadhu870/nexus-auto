@@ -70,7 +70,8 @@ pipeline {
                             version: '${BUILD_NUMBER}'
 
 
-                    } else {
+                    } else
+                    {
                         error "*** File: ${artifactPath}, could not be found";
                     }
                 }
